@@ -39,7 +39,6 @@ class SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return EasySplashScreen(
       loaderColor: Colors.white,
-      logoSize: 200,
       logo: const Image(
         image: AssetImage("assets/Daily-Routine.jpg"),
       ),

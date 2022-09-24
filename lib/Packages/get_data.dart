@@ -1,17 +1,17 @@
 import 'package:excel/excel.dart';
 import 'dart:io';
-import 'package:miu_routine/global.dart'as globe;
+import 'package:miu_routine/global.dart' as globe;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:miu_routine/functions.dart';
 
 class GetData {
-  static  getData() async {
+  static getData() async {
     final prefs = await SharedPreferences.getInstance();
     final filepath = prefs.getString('filepath');
     final String? batch = prefs.getString('ID');
     var excelbytes = File(filepath.toString()).readAsBytesSync();
     var excel = Excel.decodeBytes(excelbytes);
-    var sheet = excel['app'];
+    var sheet = excel['Fall2022'];
     List<String> alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
     globe.updated = sheet.cell(CellIndex.indexByString('J3')).value.toString();
     globe.batch = batch;
